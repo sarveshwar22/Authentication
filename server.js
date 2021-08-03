@@ -1,6 +1,14 @@
 const express = require('express')
 const path = require('path')
+const mongoose = require('mongoose')
 
+const user = require('./model/user')
+
+mongoose.connect('mongodb://localhost:27017/login-app-db', {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true
+})
 const bodyParser = require('body-parser')
 
 const app=express()
