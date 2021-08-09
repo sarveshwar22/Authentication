@@ -13,7 +13,7 @@
 			<div class="text-field"><input type="text" autocomplete="off" id="username" placeholder="Username" /></div>
 			<div class="password-field"><input type="password" autocomplete="off" id="password" placeholder="Password" /></div>
 			<div class="pass"><a href="./change-password.html">Forgot password?</a></div>
-			<div class="submit-field"><input type="submit" value="Submit" /></div>
+			<div class="submit-field"><input type="submit" value="Login" /></div>
 			<div class="signup_link">Not a member? <a href="./index.html">Signup</a></div>
 		</form>
 
@@ -41,6 +41,7 @@
 					console.log('Token: ', result.data)
 					localStorage.setItem('token', result.data)
 					alert('Success')
+
 				} else {
 					alert(result.error)
 				}
