@@ -11,6 +11,13 @@ mongoose.connect('mongodb://localhost:27017/login-app-db', {
 	useUnifiedTopology: true,
 	useCreateIndex: true
 })
+
+mongoose.connection
+	.once("open",() =>console.log("connected"))
+	.on("error", error =>{
+		console.log("Your Error----------",error);
+	})
+
 const bodyParser = require('body-parser')
 
 const app=express()
@@ -21,7 +28,9 @@ app.use(bodyParser.json())
 
 app.post('/api/register', async (req, res) => {
 
-    const { username, password: plainTextPassword } = req.body
+    const {username, password:plainTextPassword} = req.body
+	console.log(username)
+	console.log(plainTextPassword)
 
 	// if (!username || typeof username !== 'string') {
 	// 	return res.json({ status: 'error', error: 'Invalid username' })
@@ -51,7 +60,7 @@ app.post('/api/register', async (req, res) => {
 		// 	return res.json({ status: 'error', error: 'Username already in use' })
 		// }
 		// throw error
-
+		console.log(error.code)
         console.log(error)
         return res.json({ status: 'error'})
 	}
