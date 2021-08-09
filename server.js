@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost:27017/login-app-db', {
 })
 
 mongoose.connection
-	.once("open",() =>console.log("connected"))
+	.once("open",() =>console.log("Mongoose connected"))
 	.on("error", error =>{
 		console.log("Your Error----------",error);
 	})
@@ -91,8 +91,8 @@ app.post('/api/login', async (req, res) => {
 app.post('/api/register', async (req, res) => {
 
     const {username, password:plainTextPassword} = req.body
-	console.log(username)
-	console.log(plainTextPassword)
+	// console.log(username)
+	// console.log(plainTextPassword)
 
 	if (!username || typeof username !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid username' })
