@@ -41,6 +41,7 @@
 					console.log('Token: ', result.data)
 					localStorage.setItem('token', result.data)
 					alert('Success')
+					window.location.href = "./mainpage.html";
 
 				} else {
 					alert(result.error)
